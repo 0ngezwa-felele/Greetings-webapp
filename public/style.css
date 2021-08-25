@@ -1,0 +1,115 @@
+.overall{
+    width: 80%;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-image: linear-gradient(rgba(175, 168, 202, 0.8),rgba(155, 99, 116, 0.8)),url(./unnamed\ \(1\).png);
+    background-size: cover;
+    /* background-color: blueviolet; */
+    background-repeat: no-repeat;
+    border: solid black;
+    border-radius: 25px;
+    height: 500px;
+}
+.header{
+    text-align: center;
+    
+}
+.tests{
+    padding: 2em;
+}
+.buttons{
+    display: flex;
+    /* padding-left: 36em; */
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+.tabs{
+    padding: 5em;
+    margin-left: 10px;
+}
+.textbox{
+    display: flex;
+    margin: auto;
+    margin-left: 50px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+.tests{
+    display: flex;
+    margin: auto;
+    margin-left: 50px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+
+}
+.count{
+    padding-left: 2em;
+}
+.butt2{
+    padding-left: 2em;
+    
+}
+.butt1 button{
+    width: 150px;
+    margin: auto;
+    height: 50px;
+    border: solid black;
+    border-radius: 15px;
+}
+.butt2 button{
+    width: 150px;
+    height: 50px;
+    border: solid black;
+    border-radius: 15px;
+}
+.errorMessage{
+    color: crimson;
+    padding:2em;
+}
+.fieldSpace{
+    padding:1em;
+}
+
+@media screen  and (min-width: 425px) and (max-width:720px){  
+   .overall{
+       display: flex;
+       width: 100%;
+       height: 500px;
+       /* align-content: center; */
+   }
+   .header{
+       flex-direction: column;
+   }
+    
+}
+@media screen and (max-width:425px){
+    .overall{
+        display: flex;
+        height: 500px;
+        /* width: 100%; */
+    }
+    .textbox input{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+    }
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        /* text-align: center; */
+    }
+    .tests{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+}

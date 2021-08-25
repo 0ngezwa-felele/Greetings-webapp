@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./greet.test.js">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="overall">
+
+
+        <div class="header">
+
+            <h1>Greetings exercise</h1>
+
+            {{#if messages.info}}
+            <div class="errorMessage">
+                {{messages.info}}
+            </div>
+            {{/if}}
+            <div class="textbox">
+                <form action="/greeting" method="POST">
+                    <input class="storage" type="text" name="inputName">
+                    <div class="count">
+
+                        <h2></h2>
+                    </div>
+
+            </div>
+        </div>
+
+
+
+
+        <div class="tabs">
+
+            <input type="radio" class="language" id="lang" name="language" value="Isixhosa">
+            <label for="lang">Isixhosa</label>
+
+            <input type="radio" class="language" id="lang" name="language" value="English">
+            <label for="lang">English</label>
+
+            <input type="radio" class="language" id="lang" name="language" value="Sepedi">
+            <label for="lang">Sepedi</label>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <div class="butt1">
+                <button type="submit" name="greetBTN">Greet Me</button>
+                </form>
+            </div>
+            <div class="butt2">
+                <button type="submit" name="resetBTN">Greeted Names</button>
+            </div>
+        </div>
+
+
+        <div class="fieldSpace">
+            {{greeted}}
+        </div>
+
+        {{!-- <div class="tests"><a href="index2.html">Unit tests</a></div> --}}
+    </div>
+
+
+</body>
+
+</html>
+<script src="greetingWidget.js"></script>
+<script src="greet.js"></script>
