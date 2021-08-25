@@ -1,6 +1,6 @@
-module.exports = function Greetings(exist) {
+module.exports = function Greetings() {
 
-    var nameList = exist || []
+    var nameList = [];
     var give = "";
     var greetMessage;
 
