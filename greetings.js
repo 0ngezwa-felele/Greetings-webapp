@@ -4,6 +4,7 @@ module.exports = function Greetings() {
     var give = "";
     var greetMessage;
 
+
     function setNames(name) {
         console.log(name);
         
@@ -27,7 +28,7 @@ module.exports = function Greetings() {
         else if (lang === "Sepedi") {
             greetMessage = "Thobela, " + myName.substring(0, 1).toUpperCase() + myName.substring(1).toLowerCase();
         }
-        return greetMessage;
+        // return greetMessage;
 
     }
     function getPlease() {

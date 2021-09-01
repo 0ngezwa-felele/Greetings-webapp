@@ -5,6 +5,7 @@ const flash = require('express-flash');
 const greeting = require('./greetings');
 const session = require('express-session');
 
+
 const app = express();
 const greet = greeting();
 
@@ -27,28 +28,32 @@ app.set('view engine', 'handlebars')
 
 // ROUTES
 app.get('/', function (req, res) {
-    res.render('index')
+    res.render('index', { greeted:  greet.getPlease(), count: greet.counter1()})
 })
-// Also storing the names greeted
+// Greeting and error messsages
 app.post('/greeting', function (req, res) {
     let myName = req.body.inputName;
     let lang = req.body.language;
-    // console.log(myName);
-    // console.log(lang);
+   
 
-    // if (myName == '' & lang == '') {
-    //     req.flash('info', 'Please type in name and select a language');
-    // }
-    // else if (myName == '') {
-    //     req.flash('info', 'Please enter a name');
-    // }
-    // else if (lang == '') {
-    //     req.flash('info', 'select a language');
-    // }
-    // else {  }
-    greet.greetPlease(lang, myName)
-    greet.setNames(myName)
-    res.render('index', { greeted:  greet.getPlease()})
+    // console.log(myName);
+    console.log(lang);
+
+    if (myName !== '') {
+        if (lang === 'Isixhosa' || lang === 'English' || lang === 'Sepedi') {
+            greet.greetPlease(lang, myName)
+            greet.setNames(myName)
+            
+        } else {
+            req.flash('info', 'select a language');
+        }
+        
+    } else {
+        req.flash('info', 'Please type in name and select a language');
+    }
+    
+    res.redirect('/')
+    
 })
 // setting a port for the app to display
 const PORT = process.env.PORT || 1992
