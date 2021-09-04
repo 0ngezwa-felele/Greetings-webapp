@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    background-color: coral;
     /* background-image: linear-gradient(rgba(175, 168, 202, 0.8),rgba(155, 99, 116, 0.8)),url(./unnamed\ \(1\).png); */
     background-size: cover;
     /* background-color: blueviolet; */
@@ -11,6 +12,22 @@
     border: solid black;
     border-radius: 25px;
     height: 500px;
+    position: sticky;
+    top: 0;
+}
+.overall ul{
+    display: flex;
+    list-style: none;
+    margin: 20px 0px;
+
+}
+.count{
+    padding-left: 2em;
+}
+.overall ul li{
+    font-family: century;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 .header{
     text-align: center;

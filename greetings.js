@@ -1,19 +1,21 @@
 module.exports = function Greetings() {
 
-    var nameList = [];
+    var nameList = {};
     var give = "";
     var greetMessage;
 
 
     function setNames(name) {
         console.log(name);
-        
+        // insert to the database
+
         if (name != '' && /^[a-zA-Z]+$/.test(name)) {
-            var char = name.substring(1, 2).toUpperCase() + name.substring(1).toLowerCase();
-            if (!nameList.includes(char)) {
-                nameList.push(char)
+             var char = name.charAt(0).toUpperCase() + name.substring(1).toLowerCase();
+            if (nameList[char] === undefined) {
+                nameList[char] = 1
             } else {
-                give = "Name greeted already"
+                nameList[char]++
+                "Name greeted already"
             }
         }
     }
@@ -35,7 +37,9 @@ module.exports = function Greetings() {
         return greetMessage
     }
     function counter1() {
-        return nameList.length
+        let namesList = Object.keys(nameList)
+
+        return namesList.length
     }
     function getText() {
         return nameList;
@@ -46,6 +50,8 @@ module.exports = function Greetings() {
             return word + name[0].toUpperCase() + name.slice(1).toLowerCase();
         }
     }
+
+    
     function errorName() {
         return "Please type in a Name!"
     }

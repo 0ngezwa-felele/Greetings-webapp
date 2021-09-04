@@ -28,13 +28,14 @@ app.set('view engine', 'handlebars')
 
 // ROUTES
 app.get('/', function (req, res) {
-    res.render('index', { greeted:  greet.getPlease(), count: greet.counter1()})
+    res.render('index', { greeted: greet.getPlease(), count: greet.counter1() })
 })
+
 // Greeting and error messsages
 app.post('/greeting', function (req, res) {
     let myName = req.body.inputName;
     let lang = req.body.language;
-   
+
 
     // console.log(myName);
     console.log(lang);
@@ -43,18 +44,35 @@ app.post('/greeting', function (req, res) {
         if (lang === 'Isixhosa' || lang === 'English' || lang === 'Sepedi') {
             greet.greetPlease(lang, myName)
             greet.setNames(myName)
-            
+
         } else {
             req.flash('info', 'select a language');
         }
-        
+
     } else {
         req.flash('info', 'Please type in name and select a language');
     }
-    
+
     res.redirect('/')
-    
+
 })
+
+app.get('/greeted', function (req, res) {
+    res.render('greetings', { greeted: greet.getText() })
+})
+
+app.get('/counter/:inputName', function (req, res) {
+    let name = req.params.inputName
+    var namesList = greet.getText()
+console.log(name + " sdsdsdsds")
+    res.render('counter', {
+        name: name,
+        personsCounter : namesList[name]
+    })
+})
+
+
+
 // setting a port for the app to display
 const PORT = process.env.PORT || 1992
 app.listen(PORT, function () {
