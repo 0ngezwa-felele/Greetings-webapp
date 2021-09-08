@@ -16,7 +16,7 @@
 
         <div class="header">
 
-            <h1>Greetings exercise</h1>
+            <h1>Greetings with routes</h1>
 
             {{#if messages.info}}
             <div class="errorMessage">
@@ -25,10 +25,14 @@
             {{/if}}
             <div class="textbox">
                 <form action="/greeting" method="POST">
-                    <input class="storage" type="text" name="inputName">
+                    <input class="storage" type="text" name="inputName" placeholder="Enter your name">
                     <div class="count">
-                        {{count}}
+                        <div class="headCount">
+                            Counter   {{count}}
+                        </div>
+                        
                     </div>
+                
 
             </div>
         </div>
