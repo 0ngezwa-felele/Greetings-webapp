@@ -110,7 +110,7 @@ module.exports = function Greetings(pool) {
     function errorTimeOut() {
         return " "
     }
-
+   
     return {
         Greetings,
         setNames,
@@ -127,7 +127,7 @@ module.exports = function Greetings(pool) {
         all,
         duplicates,
         reset,
-        counting
+        counting,
 
 
 

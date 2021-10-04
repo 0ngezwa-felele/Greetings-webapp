@@ -46,63 +46,75 @@ app.set('view engine', 'handlebars')
 // ROUTES
 // (default route)
 app.get('/', async function (req, res) {
-        res.render('index',{
-        greeted: greet.getPlease(), count: await greet.counter1()})
+    res.render('index', {
+        greeted: greet.getPlease(), count: await greet.counter1()
     })
+})
 
-    // Greeting and error messsages
-    app.post('/greeting', async function (req, res) {
-        let myName = req.body.inputName;
-        let lang = req.body.language;
+// Greeting and error messsages
+app.post('/greeting', async function (req, res) {
+    let myName = req.body.inputName;
+    let lang = req.body.language;
+    let regularExp = /^[A-Za-z]+$/;
 
-
-        // console.log(myName);
-        // console.log(lang);
-
-        if (myName !== '') {
-            if (lang === 'Isixhosa' || lang === 'English' || lang === 'Sepedi') {
-                 greet.greetPlease(lang, myName)
-                 await greet.duplicates(myName)
-
-            } else {
-                req.flash('info', 'select a language');
-            }
-
+    if (lang && myName) {
+        if (!regularExp.test(myName)) {
+            req.flash('info', 'Please enter your name in a correct format!');
         } else {
-            req.flash('info', 'Please type in name and select a language');
+            greet.greetPlease(lang, myName)
+            await greet.duplicates(myName)
         }
-        // await greet.counter1()
-        res.redirect('/')
-
-    })
-
-    app.get('/greeted', async function (req, res) {
-        res.render('greetings', { greeted: await greet.getText() })
-    })
-    // Dynamic Route
-    app.get('/counter/:inputName', async function (req, res) {
-        let name = req.params.inputName
-        var namesList = await greet.counting()
-        // console.log(name + " sdsdsdsds")
-        res.render('counter', {
-            name: name,
-            personsCounter: namesList
-        })
-        // console.log(nameList);
-    })
-
-    app.post('/reset', async function (req, res) {
-        await greet.reset()
-        res.redirect('/')
-        });
         
+
+    }
+    else {
+
+        
+        if (!myName && !lang) {
+            req.flash('info', 'Please type in name and select a language!');
+        }
+        else if (!lang) {
+            req.flash('info', 'Please select a language!');
+
+        }
+
+        else if (myName === '') {
+            req.flash('info', 'Please enter your name!');
+        }
+       
+    }
     
-    
 
+    res.redirect('/')
+})
 
-
-    // setting a port for the app to display
-    const PORT = process.env.PORT || 2016
-    app.listen(PORT, function () {
-        console.log('App started at port:', PORT)
+app.get('/greeted', async function (req, res) {
+    res.render('greetings', { greeted: await greet.getText() })
+})
+// Dynamic Route
+app.get('/counter/:inputName', async function (req, res) {
+    let name = req.params.inputName
+    var namesList = await greet.counting()
+    // console.log(name + " sdsdsdsds")
+    res.render('counter', {
+        name: name,
+        personsCounter: namesList
     })
+    // console.log(nameList);
+})
+
+app.post('/reset', async function (req, res) {
+    await greet.reset()
+    res.redirect('/')
+});
+
+
+
+
+
+
+// setting a port for the app to display
+const PORT = process.env.PORT || 2016
+app.listen(PORT, function () {
+    console.log('App started at port:', PORT)
+})
