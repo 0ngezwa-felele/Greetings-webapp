@@ -35,7 +35,7 @@ module.exports = function Greetings(pool) {
         }
     }
 
-        function greetPlease(lang, myName) {
+        function greetPlease(lang, myName){
         let newName = myName.charAt(0).toUpperCase() + myName.substring(1).toLowerCase();
         if (lang === "Isixhosa") {
             greetMessage = "Molo, " + newName.substring(0, 1).toUpperCase() + newName.substring(1).toLowerCase();
@@ -46,7 +46,7 @@ module.exports = function Greetings(pool) {
         else if (lang === "Sepedi") {
             greetMessage = "Thobela, " + newName.substring(0, 1).toUpperCase() + newName.substring(1).toLowerCase();
         }
-        // return greetMessage;
+        return greetMessage;
 
     }
     function getPlease() {
