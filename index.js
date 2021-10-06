@@ -56,7 +56,7 @@ app.post('/greeting', async function (req, res) {
     let myName = req.body.inputName;
     let lang = req.body.language;
     let regularExp = /^[A-Za-z]+$/;
-    // try{
+    try{
     if (lang && myName) {
         if (!regularExp.test(myName)) {
             req.flash('info', 'Please enter your name in a correct format!');
@@ -81,14 +81,14 @@ app.post('/greeting', async function (req, res) {
         else if (myName === '') {
             req.flash('info', 'Please enter your name!');
         }
-       
-    // }catch(error){
-    //     console.log(error)
-    // }
+        res.redirect('/')
+    }catch(error){
+        console.log(error)
+    }
     }
     
 
-    res.redirect('/')
+    
 })
 
 app.get('/greeted', async function (req, res) {
