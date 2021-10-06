@@ -81,12 +81,13 @@ app.post('/greeting', async function (req, res) {
         else if (myName === '') {
             req.flash('info', 'Please enter your name!');
         }
-        res.redirect('/')
+    }
+    
     }catch(error){
         console.log(error)
     }
-    }
     
+    res.redirect('/')
 
     
 })
