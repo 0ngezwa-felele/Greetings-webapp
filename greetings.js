@@ -25,19 +25,25 @@ module.exports = function Greetings(pool) {
     // }
 
    async function duplicates (name) {
-    
-    let nameFormat = name.charAt(0).toUpperCase() + name.substring(1).toLowerCase();
-    var checkName = await pool.query(`select name from greetings where name = $1`, [nameFormat]);
-    if(checkName.rowCount === 0) {
+    try {
+        let nameFormat = name.charAt(0).toUpperCase() + name.substring(1).toLowerCase();
+        var checkName = await pool.query(`select name from greetings where name = $1`, [nameFormat]);
+        if(checkName.rowCount === 0) {
         await setNames(nameFormat)
     } else {
         var duplicate = await pool.query(`update greetings set counter = counter + 1 where name = $1`, [nameFormat])
         }
     }
+     catch (error) {
+        console.log(error)
+    }
+}
+    
 
         function greetPlease(lang, myName){
-        let newName = myName.charAt(0).toUpperCase() + myName.substring(1).toLowerCase();
-        if (lang === "Isixhosa") {
+            try {
+                let newName = myName.charAt(0).toUpperCase() + myName.substring(1).toLowerCase();
+         if (lang === "Isixhosa") {
             greetMessage = "Molo, " + newName.substring(0, 1).toUpperCase() + newName.substring(1).toLowerCase();
         }
         else if (lang === "English") {
@@ -48,6 +54,10 @@ module.exports = function Greetings(pool) {
         }
         return greetMessage;
 
+            } catch (error) {
+                
+            }
+        
     }
     function getPlease() {
         return greetMessage

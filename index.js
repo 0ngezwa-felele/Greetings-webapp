@@ -86,6 +86,8 @@ app.post('/greeting', async function (req, res) {
     }catch(error){
         console.log(error)
     }
+
+   
     
     res.redirect('/')
 
