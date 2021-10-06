@@ -19,7 +19,7 @@ const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@l
 
 const pool = new Pool({
     connectionString
-    // ssl: useSSL
+    ssl: useSSL
 });
 
 
@@ -133,7 +133,7 @@ app.post('/reset', async function (req, res) {
         console.log(error)
     }
     });
-    
+
 // setting a port for the app to display
 const PORT = process.env.PORT || 2016
 app.listen(PORT, function () {
