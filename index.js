@@ -46,9 +46,14 @@ app.set('view engine', 'handlebars')
 // ROUTES
 // (default route)
 app.get('/', async function (req, res) {
-    res.render('index', {
-        greeted: greet.getPlease(), count: await greet.counter1()
-    })
+    try {
+        res.render('index', {
+            greeted: greet.getPlease(), count: await greet.counter1()
+        })
+    } catch (error) {
+        console.log(error)
+    }
+    
 })
 
 // Greeting and error messsages
@@ -95,30 +100,40 @@ app.post('/greeting', async function (req, res) {
 })
 
 app.get('/greeted', async function (req, res) {
-    res.render('greetings', { greeted: await greet.getText() })
+    try {
+        res.render('greetings', { greeted: await greet.getText() })
+    } catch (error) {
+        console.log(error)
+    }
+   
 })
 // Dynamic Route
 app.get('/counter/:inputName', async function (req, res) {
-    let name = req.params.inputName
+    try {
+        let name = req.params.inputName
     var namesList = await greet.counting()
     // console.log(name + " sdsdsdsds")
     res.render('counter', {
         name: name,
         personsCounter: namesList
     })
+    
+    } catch (error) {
+        console.log(error)
+    }
     // console.log(nameList);
 })
 
 app.post('/reset', async function (req, res) {
-    await greet.reset()
-    res.redirect('/')
-});
+    try {
+        await greet.reset()
+        res.redirect('/')
 
-
-
-
-
-
+    } catch (error) {
+        console.log(error)
+    }
+    });
+    
 // setting a port for the app to display
 const PORT = process.env.PORT || 2016
 app.listen(PORT, function () {
