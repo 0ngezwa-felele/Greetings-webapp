@@ -61,7 +61,7 @@ app.post('/greeting', async function (req, res) {
         if (!regularExp.test(myName)) {
             req.flash('info', 'Please enter your name in a correct format!');
         } else {
-            greet.greetPlease(lang, myName)
+            await greet.greetPlease(lang, myName)
             await greet.duplicates(myName)
         }
         
