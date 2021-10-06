@@ -20,7 +20,7 @@ if (process.env.DATABASE_URL && !local) {
 // const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/greeting';
 
 const pool = new Pool({
-    connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/greeting',
+    connectionString: process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/greeting',
     ssl: {rejectUnauthorized: false}
 });
 
