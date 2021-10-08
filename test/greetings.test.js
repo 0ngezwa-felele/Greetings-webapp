@@ -9,7 +9,7 @@ if (process.env.DATABASE_URL && !local) {
     useSSL = true;
 }
 // DB connection string
-const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/travis_ci_test';
+const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/greeting';
 
 const pool = new Pool({
     connectionString
@@ -78,7 +78,7 @@ describe('greet tests', async function () {
     let number = Greetings(pool)
     await number.setNames("Pumza");
     await number.greetPlease("English", "Pumza")
-   await number.greetPlease("English", "Pumza")
+//    await number.greetPlease("English", "Pumza")
   assert.equal(4, await number.counter1())  
 
 })
