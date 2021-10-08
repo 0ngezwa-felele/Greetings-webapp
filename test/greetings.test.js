@@ -69,17 +69,18 @@ describe('greet tests', async function () {
         let number = Greetings(pool)
        await number.setNames("Pumza");
       await  number.greetPlease("English", "Pumza")
-      assert.deepEqual(7, await number.counter1())  
+      assert.deepEqual(1, await number.counter1())  
    
    })
 })
  
    it("Should be able to stop the counter from incrementing when the same name is greeted",async function(){
+ 
     let number = Greetings(pool)
+    await number.reset()
     await number.setNames("Pumza");
     await number.greetPlease("English", "Pumza")
-   await number.greetPlease("English", "Pumza")
-  assert.deepEqual(7, await number.counter1())  
+  assert.deepEqual(1, await number.counter1())  
 
 })
 
@@ -89,12 +90,12 @@ describe("Namelist",async function(){
         var name = "ongi"
         var name2 = "avuzwa"
         var name3 = "Ano"
-      
+        await counting.reset()
        await counting.setNames(name)
        await counting.setNames(name2)
       await  counting.setNames(name3)
        
-        assert.deepEqual(7, await counting.counter1())
+        assert.deepEqual(3, await counting.counter1())
 
 
     })
