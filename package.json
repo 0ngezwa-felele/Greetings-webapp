@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/0ngezwa-felele/Greetings-webapp/issues"
   },
-  "homepage": "https://github.com/0ngezwa-felele/Greetings-webapp#readme"
+  "homepage": "https://github.com/0ngezwa-felele/Greetings-webapp#readme",
+  "devDependencies": {
+    "mocha": "^9.1.2"
+  }
 }
