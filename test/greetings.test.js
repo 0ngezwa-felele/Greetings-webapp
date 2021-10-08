@@ -69,7 +69,7 @@ describe('greet tests', async function () {
         let number = Greetings(pool)
        await number.setNames("Pumza");
       await  number.greetPlease("English", "Pumza")
-      assert.deepEqual(4, await number.counter1())  
+      assert.deepEqual(7, await number.counter1())  
    
    })
 })
@@ -78,8 +78,8 @@ describe('greet tests', async function () {
     let number = Greetings(pool)
     await number.setNames("Pumza");
     await number.greetPlease("English", "Pumza")
-//    await number.greetPlease("English", "Pumza")
-  assert.equal(4, await number.counter1())  
+   await number.greetPlease("English", "Pumza")
+  assert.deepEqual(7, await number.counter1())  
 
 })
 
@@ -94,7 +94,7 @@ describe("Namelist",async function(){
        await counting.setNames(name2)
       await  counting.setNames(name3)
        
-        assert.deepEqual(4, await counting.counter1())
+        assert.deepEqual(7, await counting.counter1())
 
 
     })
