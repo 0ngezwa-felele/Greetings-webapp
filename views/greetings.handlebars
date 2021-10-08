@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{!--
+    <link rel="stylesheet" href="/css/skeleton.css"> --}}
+
+    {{!--
+    <link rel="stylesheet" href="../public/style.css"> --}}
+
+    <title>Document</title>
+    <style>
+        .overall {
+            background: coral;
+            margin: 5%;
+            padding: 2em;
+            width: 40%;
+            position: sticky;
+            top: 0;
+            border: 1px solid wheat;
+            color: black;
+            outline: none;
+            transition: .6s ease;
+            border-radius: 25px;
+
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+    <div class="overall">
+
+        <h2>Greeted Names</h2>
+
+        {{#each greeted}}
+        <ul>
+            <a href="/counter/{{name}}">{{name}}</a>
+        </ul>
+        {{/each}}
+
+
+
+    </div>
+</body>
+
+</html>

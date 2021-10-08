@@ -1,16 +1,63 @@
 .overall{
-    width: 80%;
+    width: 50%;
     margin:auto;
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-image: linear-gradient(rgba(175, 168, 202, 0.8),rgba(155, 99, 116, 0.8)),url(./unnamed\ \(1\).png);
+    background-color: coral;
+    /* background-image: linear-gradient(rgba(175, 168, 202, 0.8),rgba(155, 99, 116, 0.8)),url(./unnamed\ \(1\).png); */
     background-size: cover;
     /* background-color: blueviolet; */
     background-repeat: no-repeat;
     border: solid black;
     border-radius: 25px;
-    height: 500px;
+    height: 750px;
+    position: sticky;
+    top: 0;
+    border: 1px solid wheat;
+    color: black;
+    outline: none;
+    transition: .6s ease;
+    border-radius: 25px;
+    
+
+}
+.overall:hover{
+    cursor: pointer;
+    color: black;
+    box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+    font-weight: bold;
+    /* background-color: rgba(235, 243, 247, 0.103); */
+
+}
+.textbox input{
+    /* width: 00%; */
+    height: 100%;
+    border: 1px solid wheat;
+    color: black;
+    outline: none;
+    transition: .6s ease;
+
+}
+.textbox form{
+    display: flex;
+}
+.overall ul{
+    display: flex;
+    list-style: none;
+    margin: 20px 0px;
+
+}
+/* .count{
+    padding-left: 3em;
+} */
+.names{
+    background-color: coral;
+}
+.overall ul li{
+    font-family: century;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 .header{
     text-align: center;
@@ -34,12 +81,14 @@
 }
 .textbox{
     display: flex;
-    margin: auto;
-    margin-left: 50px;
+    /* margin: auto; */
+    /* margin-left: 50px; */
     text-align: center;
     justify-content: center;
     align-content: center;
+    padding-top: 3em;
 }
+
 .tests{
     display: flex;
     margin: auto;
@@ -50,25 +99,72 @@
 
 }
 .count{
+    display: flex;
+}
+.headCount{
     padding-left: 2em;
 }
 .butt2{
     padding-left: 2em;
+    
     
 }
 .butt1 button{
     width: 150px;
     margin: auto;
     height: 50px;
-    border: solid black;
-    border-radius: 15px;
+    background-color:whitesmoke;
+    border: 1px solid wheat;
+    color: black;
+    outline: none;
+    transition: .6s ease;
+    border-radius: 25px;
+    
 }
-.butt2 button{
+.butt1 button:hover{
+    cursor: pointer;
+    background-color: rgb(238, 232, 221);
+    color: black;
+    box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+    font-weight: bold;
+}
+.butt2  button{
     width: 150px;
     height: 50px;
-    border: solid black;
-    border-radius: 15px;
+    background-color:whitesmoke;
+    border: 1px solid wheat;
+    color: black;
+    outline: none;
+    transition: .6s ease;
+    border-radius: 25px;
 }
+
+.butt2 button:hover{
+    cursor: pointer;
+    background-color: rgb(238, 232, 221);
+    color: black;
+    box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+    font-weight: bold;
+}
+/* .butt3 button{
+    width: 150px;
+    height: 50px;
+    background-color:whitesmoke;
+    border: 1px solid wheat;
+    color: black;
+    outline: none;
+    transition: .6s ease;
+    border-radius: 25px;
+}
+.butt3 button:hover{
+    cursor: pointer;
+    background-color: rgb(238, 232, 221);
+    color: black;
+    box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+    font-weight: bold;
+} */
+
+
 .errorMessage{
     color: crimson;
     padding:2em;
@@ -99,17 +195,32 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        background-color:whitesmoke;
+        border: 1px solid wheat;
+        color: black;
+        outline: none;
+        transition: .6s ease;
         
     }
-    .buttons{
+    .buttons .butt3{
         display: flex;
         flex-direction: column;
+        padding-bottom: 5em;
         /* text-align: center; */
     }
     .tests{
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+    .butt3{
+        display: flex;
+        /* padding-left: 36em; */
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+        align-content: center;
     }
     
 }

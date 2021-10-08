@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./greet.test.js">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../test/greetings.test.js">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
 
         <div class="header">
 
-            <h1>Greetings exercise</h1>
+            <h1>Greetings with routes</h1>
 
             {{#if messages.info}}
             <div class="errorMessage">
@@ -25,11 +26,14 @@
             {{/if}}
             <div class="textbox">
                 <form action="/greeting" method="POST">
-                    <input class="storage" type="text" name="inputName">
+                    <input class="storage" type="text" name="inputName" placeholder="Enter your name">
                     <div class="count">
+                        <div class="headCount">
+                            Counter {{count}}
+                        </div>
 
-                        <h2></h2>
                     </div>
+
 
             </div>
         </div>
@@ -57,9 +61,21 @@
                 <button type="submit" name="greetBTN">Greet Me</button>
                 </form>
             </div>
-            <div class="butt2">
-                <button type="submit" name="resetBTN">Greeted Names</button>
-            </div>
+            <form action="/greeted" method="GET">
+
+                <div class="butt2">
+                    <button type="submit" name="greeted_names">Greeted Names</button>
+                </div>
+
+            </form>
+
+            <form action="/reset" method="POST">
+                <div class="butt2">
+                    <button class="butt2" type="submit" name="resetBTN" value="resetBTN">Reset</button>
+                </div>
+
+            </form>
+
         </div>
 
 
