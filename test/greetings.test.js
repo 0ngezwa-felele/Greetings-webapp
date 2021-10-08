@@ -68,7 +68,7 @@ describe('greet tests', async function () {
     it("Should be able to return the count number if the name is greeted",async function(){
         let number = Greetings(pool)
        await number.setNames("Pumza");
-      await  number.greetPlease("English", "Pumzca")
+      await  number.greetPlease("English", "Pumza")
       assert.deepEqual(1, await number.counter1())  
    
    })
