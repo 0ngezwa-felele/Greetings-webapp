@@ -23,7 +23,15 @@
             <div class="errorMessage">
                 {{messages.info}}
             </div>
+            
             {{/if}}
+
+            {{#if messages.key}}
+            <div class="dataError">
+                {{messages.key}}
+            </div>
+            {{/if}}
+
             <div class="textbox">
                 <form action="/greeting" method="POST">
                     <input class="storage" type="text" name="inputName" placeholder="Enter your name">

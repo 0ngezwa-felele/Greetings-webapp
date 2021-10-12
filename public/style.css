@@ -22,6 +22,9 @@
     
 
 }
+.dataError{
+    color: green;
+}
 .overall:hover{
     cursor: pointer;
     color: black;

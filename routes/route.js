@@ -66,10 +66,8 @@ module.exports = function greetingRouts (greet) {
         // let Button = req.body.resetBTN
 
         try {
-            
-                req.flash('info', 'Database cleared succesfully!')
-            
             await greet.reset()
+            req.flash('key', 'Database cleared succesfully!');
             res.redirect('/')
     
         } catch (error) {
