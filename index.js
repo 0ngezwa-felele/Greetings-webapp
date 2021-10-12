@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const flash = require('express-flash');
 const greeting = require('./greetings');
 const session = require('express-session');
+const routes = require('./routes/route');
 // DB
 const pg = require("pg");
 const Pool = pg.Pool;
@@ -26,6 +27,7 @@ const pool = new Pool({
 
 
 const greet = greeting(pool);
+const greetingRoute = routes(greet);
 
 // accessing public files
 app.use(session({
@@ -46,59 +48,13 @@ app.set('view engine', 'handlebars')
 
 // ROUTES
 // (default route)
-app.get('/', async function (req, res) {
-    try {
-        res.render('index', {
-            greeted: greet.getPlease(), count: await greet.counter1()
-        })
-    } catch (error) {
-        console.log(error)
-    }
-    
-})
+app.get('/', greetingRoute.all)
+
 
 // Greeting and error messsages
-app.post('/greeting', async function (req, res) {
-    let myName = req.body.inputName;
-    let lang = req.body.language;
-    let regularExp = /^[A-Za-z]+$/;
-    try{
-    if (lang && myName) {
-        if (!regularExp.test(myName)) {
-            req.flash('info', 'Please enter your name in a correct format!');
-        } else {
-            await greet.greetPlease(lang, myName)
-            await greet.duplicates(myName)
-        }
-        
-
-    }
-    else {
-
-        
-        if (!myName && !lang) {
-            req.flash('info', 'Please type in name and select a language!');
-        }
-        else if (!lang) {
-            req.flash('info', 'Please select a language!');
-
-        }
-
-        else if (myName === '') {
-            req.flash('info', 'Please enter your name!');
-        }
-    }
+app.post('/greeting', greetingRoute.greetError)
     
-    }catch(error){
-        console.log(error)
-    }
 
-   
-    
-    res.redirect('/')
-
-    
-})
 
 app.get('/greeted', async function (req, res) {
     try {
@@ -109,31 +65,12 @@ app.get('/greeted', async function (req, res) {
    
 })
 // Dynamic Route
-app.get('/counter/:inputName', async function (req, res) {
-    try {
-        let name = req.params.inputName
-    var namesList = await greet.counting()
-    // console.log(name + " sdsdsdsds")
-    res.render('counter', {
-        name: name,
-        personsCounter: namesList
-    })
-    
-    } catch (error) {
-        console.log(error)
-    }
+app.get('/counter/:inputName', greetingRoute.counter2)
     // console.log(nameList);
-})
 
-app.post('/reset', async function (req, res) {
-    try {
-        await greet.reset()
-        res.redirect('/')
 
-    } catch (error) {
-        console.log(error)
-    }
-    });
+app.post('/reset',greetingRoute.resetting);
+    
 
 // setting a port for the app to display
 const PORT = process.env.PORT || 2016

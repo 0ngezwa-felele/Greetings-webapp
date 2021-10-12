@@ -1,6 +1,6 @@
 module.exports = function Greetings(pool) {
 
-    var nameList = {};
+    
     var give = "";
     var greetMessage;
 

@@ -6,14 +6,33 @@
     <title></title>
     <link rel="stylesheet" href="/css/skeleton.css">
     <link rel="stylesheet" href="/css/style.css">
+{{!-- <script src="/timeout.js"></script> --}}
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+    const errorMessageElement = document.querySelector('.errorMessage')
+    const fieldSpaceElement = document.querySelector('.fieldSpace')
 
+if(errorMessageElement.innerHTML !== ''){
+    setTimeout(function (){
+        errorMessageElement.innerHTML = '';
+    },3000 );
+}
+if(fieldSpaceElement.innerHTML !== ''){
+    setTimeout(function (){
+        fieldSpaceElement.innerHTML = '';
+    },3000 );
+}
+
+})
+</script>
 <body>
     <div class="container">
         {{{body}}}
     </div>
 
 </body>
+
 
 </html>
 
