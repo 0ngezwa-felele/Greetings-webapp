@@ -24,7 +24,7 @@ describe('greet tests', async function () {
     it('should be able to greet a name enetered in Isixhosa when the greet button is clicked', async function () {
         let newGreet = Greetings();
 
-        assert.equal("Molo, Ongezwa", await newGreet.greetPlease("Isixhosa", "Ongezwa"));
+        assert.equal("Molo Ongezwa", await newGreet.greetPlease("Isixhosa", "Ongezwa"));
     });
 
 
@@ -32,12 +32,12 @@ describe('greet tests', async function () {
         var english = Greetings(pool);
 
 
-        assert.equal("Hello, Ongezwa", await english.greetPlease("English", "Ongezwa"));
+        assert.equal("Hello Ongezwa", await english.greetPlease("English", "Ongezwa"));
     })
     it('should be able to greet the name entered in Sepedi when the greet button is clicked ', async function () {
         var sepedi = Greetings(pool);
 
-        assert.equal("Thobela, Ongezwa", await sepedi.greetPlease("Sepedi", "Ongezwa"));
+        assert.equal("Thobela Ongezwa", await sepedi.greetPlease("Sepedi", "Ongezwa"));
     })
   
     it('should return "Please type in a Name!" message when the language has been chosen but the text input field is still empty and the greetMe button has is clicked ', async function () {
