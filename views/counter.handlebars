@@ -8,10 +8,19 @@
     <title>Document</title>
     <style>
         .overall {
-            background-image: linear-gradient(rgba(175, 168, 202, 0.8),rgba(155, 99, 116, 0.8)),url(./unnamed\ \(1\).png);
-            margin: 5%;
-            padding: 2em;
-            width: 40%;
+            width: 50%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            /* background-color: coral; */
+            background-image: linear-gradient(rgba(175, 168, 202, 0.8), rgba(155, 99, 116, 0.8)), url(./unnamed\ \(1\).png);
+            background-size: cover;
+            /* background-color: blueviolet; */
+            background-repeat: no-repeat;
+            border: solid black;
+            border-radius: 25px;
+            height: 750px;
             position: sticky;
             top: 0;
             border: 1px solid wheat;
@@ -20,11 +29,11 @@
             transition: .6s ease;
             border-radius: 25px;
 
+
         }
 
         .back {
             display: flex;
-            margin: auto;
             text-align: center;
             justify-content: center;
             align-content: center;
@@ -67,6 +76,9 @@
             color: black;
             box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
             font-weight: bold;
+        }
+        .row{
+            margin: 10%;
         }
     </style>
 </head>

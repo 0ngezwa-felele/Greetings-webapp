@@ -56,14 +56,7 @@ app.post('/greeting', greetingRoute.greetError)
     
 
 
-app.get('/greeted', async function (req, res) {
-    try {
-        res.render('greetings', { greeted: await greet.getText() })
-    } catch (error) {
-        console.log(error)
-    }
-   
-})
+app.get('/greeted',greetingRoute.greetedNames)
 // Dynamic Route
 app.get('/counter/:inputName', greetingRoute.counter2)
     // console.log(nameList);

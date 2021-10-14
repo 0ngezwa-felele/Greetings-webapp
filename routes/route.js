@@ -47,6 +47,14 @@ module.exports = function greetingRouts (greet) {
         res.redirect('/')
     }
 
+    async function greetedNames(req, res) {
+        try {
+            res.render('greetings', { greeted: await greet.getText() })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     async function counter2 (req, res) {
         try {
             let name = req.params.inputName
@@ -79,7 +87,8 @@ module.exports = function greetingRouts (greet) {
         all,
         greetError,
         counter2,
-        resetting
+        resetting,
+        greetedNames
         
     }
 }

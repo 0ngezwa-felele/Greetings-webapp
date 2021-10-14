@@ -15,10 +15,19 @@
     <title>Document</title>
     <style>
         .overall {
-           background-image: linear-gradient(rgba(175, 168, 202, 0.8),rgba(155, 99, 116, 0.8)),url(./unnamed\ \(1\).png);
-            margin: 5%;
-            padding: 2em;
-            width: 40%;
+            width: 50%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            /* background-color: coral; */
+            background-image: linear-gradient(rgba(175, 168, 202, 0.8), rgba(155, 99, 116, 0.8)), url(./unnamed\ \(1\).png);
+            background-size: cover;
+            /* background-color: blueviolet; */
+            background-repeat: no-repeat;
+            border: solid black;
+            border-radius: 25px;
+            height: 750px;
             position: sticky;
             top: 0;
             border: 1px solid wheat;
@@ -27,6 +36,27 @@
             transition: .6s ease;
             border-radius: 25px;
 
+
+        }
+
+        .back1 a button {
+            width: 150px;
+            height: 50px;
+            background-color: whitesmoke;
+            border: 1px solid wheat;
+            color: black;
+            outline: none;
+            transition: .6s ease;
+            border-radius: 25px;
+            margin: 9%;
+        }
+
+        .back1 a button:hover {
+            cursor: pointer;
+            background-color: rgb(238, 232, 221);
+            color: black;
+            box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+            font-weight: bold;
         }
     </style>
 
@@ -46,9 +76,15 @@
         </ul>
         {{/each}}
 
+        
+
+            <div class="back1">
+                <a href="/"> <button>Home</button></a>
+            </div>
 
 
-    </div>
+
+        </div>
 </body>
 
 </html>

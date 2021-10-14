@@ -1,102 +1,89 @@
 module.exports = function Greetings(pool) {
 
-    
+
     var give = "";
     var greetMessage;
 
 
     async function setNames(name) {
         let newName = name.charAt(0).toUpperCase() + name.substring(1).toLowerCase();
-        let storing = await pool.query('INSERT INTO greetings(name, counter) VALUES ($1,$2)',[newName,1])
+        let storing = await pool.query('INSERT INTO greetings(name, counter) VALUES ($1,$2)', [newName, 1])
         return storing.rows
     }
-    // console.log(name);
-    // // insert to the database
 
-
-    // if (name != '' && /^[a-zA-Z]+$/.test(name)) {
-    //      var char = name.charAt(0).toUpperCase() + name.substring(1).toLowerCase();
-    //     if (nameList[char] === undefined) {
-    //         nameList[char] = 1
-    //     } else {
-    //         nameList[char]++
-    //         "Name greeted already"
-    //     }
-    // }
-
-   async function duplicates (name) {
-    try {
-        let nameFormat = name.charAt(0).toUpperCase() + name.substring(1).toLowerCase();
-        var checkName = await pool.query(`select name from greetings where name = $1`, [nameFormat]);
-        if(checkName.rowCount === 0) {
-        await setNames(nameFormat)
-    } else {
-        var duplicate = await pool.query(`update greetings set counter = counter + 1 where name = $1`, [nameFormat])
-        }
-    }
-     catch (error) {
-        console.log(error)
-    }
-}
-    
-
-        function greetPlease(lang, myName){
-            try {
-                let newName = myName.charAt(0).toUpperCase() + myName.substring(1).toLowerCase();
-         if (lang === "Isixhosa") {
-            greetMessage = "Molo, " + newName.substring(0, 1).toUpperCase() + newName.substring(1).toLowerCase();
-        }
-        else if (lang === "English") {
-            greetMessage = "Hello, " + newName.substring(0, 1).toUpperCase() + newName.substring(1).toLowerCase();
-        }
-        else if (lang === "Sepedi") {
-            greetMessage = "Thobela, " + newName.substring(0, 1).toUpperCase() + newName.substring(1).toLowerCase();
-        }
-        return greetMessage;
-
-            } catch (error) {
-                
+    async function duplicates(name) {
+        try {
+            let nameFormat = name.charAt(0).toUpperCase() + name.substring(1).toLowerCase();
+            var checkName = await pool.query(`select name from greetings where name = $1`, [nameFormat]);
+            if (checkName.rowCount === 0) {
+                await setNames(nameFormat)
+            } else {
+                var duplicate = await pool.query(`update greetings set counter = counter + 1 where name = $1`, [nameFormat])
             }
-        
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    function greetPlease(lang, myName) {
+        try {
+            let newName = myName.charAt(0).toUpperCase() + myName.substring(1).toLowerCase();
+            if (lang === "Isixhosa") {
+                greetMessage = "Molo " + newName.substring(0, 1).toUpperCase() + newName.substring(1).toLowerCase();
+            }
+            else if (lang === "English") {
+                greetMessage = "Hello " + newName.substring(0, 1).toUpperCase() + newName.substring(1).toLowerCase();
+            }
+            else if (lang === "Sepedi") {
+                greetMessage = "Thobela " + newName.substring(0, 1).toUpperCase() + newName.substring(1).toLowerCase();
+            }
+            return greetMessage;
+
+        } catch (error) {
+
+        }
+
     }
     function getPlease() {
         return greetMessage
     }
-     async function counter1() {
+    async function counter1() {
         let namesList = await pool.query('SELECT DISTINCT name FROM greetings');
 
         return namesList.rowCount;
     }
-    
+
 
     async function getText() {
         let allNames = await pool.query('SELECT * FROM greetings');
 
         return allNames.rows;
-         
+
     }
 
-    async function counting(){
-       let allNames = await pool.query('SELECT * FROM greetings');
-        var count= allNames.rows;
+    async function counting() {
+        let allNames = await pool.query('SELECT * FROM greetings');
+        var count = allNames.rows;
         return count[0].counter;
     }
-    async function reset(){
-     let remove = await pool.query('DELETE FROM greetings');
-      return remove
+    async function reset() {
+        let remove = await pool.query('DELETE FROM greetings');
+        return remove
     }
 
     function all(name, word) {
         if (name != "" && word != "" && /^[a-zA-Z]+$/.test(name)) {
             if (nameList[char] === undefined) {
                 nameList[char] = 1
-           } else {
-               nameList[char]++
-               "Name greeted already"
+            } else {
+                nameList[char]++
+                "Name greeted already"
             }
             return word + name[0].toUpperCase() + name.slice(1).toLowerCase();
         }
-        
+
     }
 
 
@@ -120,7 +107,7 @@ module.exports = function Greetings(pool) {
     function errorTimeOut() {
         return " "
     }
-   
+
     return {
         Greetings,
         setNames,

@@ -150,31 +150,14 @@
     box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
     font-weight: bold;
 }
-/* .butt3 button{
-    width: 150px;
-    height: 50px;
-    background-color:whitesmoke;
-    border: 1px solid wheat;
-    color: black;
-    outline: none;
-    transition: .6s ease;
-    border-radius: 25px;
-}
-.butt3 button:hover{
-    cursor: pointer;
-    background-color: rgb(238, 232, 221);
-    color: black;
-    box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
-    font-weight: bold;
-} */
-
-
 .errorMessage{
     color: crimson;
     padding:2em;
 }
 .fieldSpace{
     padding:1em;
+    margin: 5%;
+    font-size: 2rem;
 }
 
 @media screen  and (min-width: 425px) and (max-width:720px){  

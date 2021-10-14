@@ -18,12 +18,13 @@
         <div class="header">
 
             <h1>Greetings with routes</h1>
-
+            
+            <div>
             {{#if messages.info}}
             <div class="errorMessage">
                 {{messages.info}}
             </div>
-            
+    
             {{/if}}
 
             {{#if messages.key}}
@@ -45,10 +46,7 @@
 
             </div>
         </div>
-
-
-
-
+        
         <div class="tabs">
 
             <input type="radio" class="language" id="lang" name="language" value="Isixhosa">
@@ -90,8 +88,6 @@
         <div class="fieldSpace">
             {{greeted}}
         </div>
-
-        {{!-- <div class="tests"><a href="index2.html">Unit tests</a></div> --}}
     </div>
 
 
