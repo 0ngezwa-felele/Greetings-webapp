@@ -57,7 +57,7 @@ module.exports = function Greetings(pool) {
 
 
     async function getText() {
-        let allNames = await pool.query('SELECT * FROM greetings');
+        let allNames = await pool.query('SELECT name, counter FROM greetings');
 
         return allNames.rows;
 

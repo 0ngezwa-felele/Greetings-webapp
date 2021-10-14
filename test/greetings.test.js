@@ -79,12 +79,23 @@ describe('greet tests', async function () {
         let number = Greetings(pool)
         await number.reset()
         await number.setNames("Pumza");
-        await number.setNames("Pumza");
+        // await number.setNames("Pumza");
 
         // await number.greetPlease("English", "Pumza")
         assert.deepEqual(1, await number.counter1())
 
     })
+
+    it("Should be able to increment the small counter when the same name is greeted twice and bot duplicate the name on display", async function () {
+
+        let duplicate = Greetings(pool)
+        await duplicate.reset()
+        await duplicate.duplicates("Pumza");
+        await duplicate.duplicates("Pumza");
+        assert.deepEqual([{counter: 2, name: 'Pumza'}], await duplicate.getText());
+
+    })
+
     it("Should be able to return the number of names greeted", async function () {
         let counting = Greetings(pool)
         var name = "ongi"
@@ -99,6 +110,7 @@ describe('greet tests', async function () {
 
 
     })
+    
     after(function () {
         pool.end();
     });
