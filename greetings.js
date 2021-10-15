@@ -73,20 +73,6 @@ module.exports = function Greetings(pool) {
         return remove
     }
 
-    function all(name, word) {
-        if (name != "" && word != "" && /^[a-zA-Z]+$/.test(name)) {
-            if (nameList[char] === undefined) {
-                nameList[char] = 1
-            } else {
-                nameList[char]++
-                "Name greeted already"
-            }
-            return word + name[0].toUpperCase() + name.slice(1).toLowerCase();
-        }
-
-    }
-
-
     function errorName() {
         return "Please type in a Name!"
     }
@@ -121,7 +107,6 @@ module.exports = function Greetings(pool) {
         errorTimeOut,
         SpecialChar,
         existing,
-        all,
         duplicates,
         reset,
         counting,
