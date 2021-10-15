@@ -69,8 +69,7 @@ module.exports = function Greetings(pool) {
         return count[0].counter;
     }
     async function reset() {
-        let remove = await pool.query('DELETE FROM greetings');
-        return remove
+        await pool.query('DELETE FROM greetings');
     }
 
     function errorName() {

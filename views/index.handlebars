@@ -19,79 +19,77 @@
         <div class="header">
 
             <h1>Greetings with routes</h1>
-            
+
             <div>
-            {{#if messages.info}}
-            <div class="errorMessage">
-                {{messages.info}}
-            </div>
-    
-            {{/if}}
+                {{#if messages.info}}
+                <div id='errorMessage' class="errorMessage">
+                    {{messages.info}}
+                </div>
 
-            {{#if messages.key}}
-            <div class="dataError">
-                {{messages.key}}
-            </div>
-            {{/if}}
+                {{/if}}
 
-            <div class="textbox">
-                <form action="/greeting" method="POST">
-                    <input class="storage" type="text" name="inputName" placeholder="Enter your name">
-                    <div class="count">
-                        <div class="headCount">
-                            Counter {{count}}
+                {{#if messages.key}}
+                <div id='dataError' class="dataError">
+                    {{messages.key}}
+                </div>
+                {{/if}}
+
+                <div class="textbox">
+                    <form action="/greeting" method="POST">
+                        <input class="storage" type="text" name="inputName" placeholder="Enter your name">
+                        <div class="count">
+                            <div class="headCount">
+                                Counter : {{count}}
+                            </div>
+
                         </div>
 
+
+                </div>
+            </div>
+
+            <div class="tabs">
+
+                <input type="radio" class="language" id="lang" name="language" value="Isixhosa">
+                <label for="lang">Isixhosa</label>
+
+                <input type="radio" class="language" id="lang" name="language" value="English">
+                <label for="lang">English</label>
+
+                <input type="radio" class="language" id="lang" name="language" value="Sepedi">
+                <label for="lang">Sepedi</label>
+
+            </div>
+
+
+            <div class="buttons">
+
+                <div class="butt1">
+                    <button type="submit" name="greetBTN">Greet Me</button>
+                    </form>
+                </div>
+                <form action="/greeted" method="GET">
+
+                    <div class="butt2">
+                        <button type="submit" name="greeted_names">Greeted Names</button>
                     </div>
 
-
-            </div>
-        </div>
-        
-        <div class="tabs">
-
-            <input type="radio" class="language" id="lang" name="language" value="Isixhosa">
-            <label for="lang">Isixhosa</label>
-
-            <input type="radio" class="language" id="lang" name="language" value="English">
-            <label for="lang">English</label>
-
-            <input type="radio" class="language" id="lang" name="language" value="Sepedi">
-            <label for="lang">Sepedi</label>
-
-        </div>
-
-
-        <div class="buttons">
-
-            <div class="butt1">
-                <button type="submit" name="greetBTN">Greet Me</button>
                 </form>
+
+                <form action="/reset" method="POST">
+                    <div class="butt2">
+                        <button class="butt2" type="submit" name="resetBTN" value="resetBTN">Reset</button>
+                    </div>
+
+                </form>
+
             </div>
-            <form action="/greeted" method="GET">
-
-                <div class="butt2">
-                    <button type="submit" name="greeted_names">Greeted Names</button>
-                </div>
-
-            </form>
-
-            <form action="/reset" method="POST">
-                <div class="butt2">
-                    <button class="butt2" type="submit" name="resetBTN" value="resetBTN">Reset</button>
-                </div>
-
-            </form>
-
-        </div>
 
 
-        <div class="fieldSpace">
-            {{greeted}}
-        </div>
-    </div>
-
-
+            <div class="fieldSpace">
+                {{greeted}}
+            </div>
+        </div>       
 </body>
 
 </html>

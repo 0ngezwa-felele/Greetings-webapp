@@ -21,12 +21,9 @@ module.exports = function greetingRouts (greet) {
                 await greet.greetPlease(lang, myName)
                 await greet.duplicates(myName)
             }
-            
-    
+
         }
         else {
-    
-            
             if (!myName && !lang) {
                 req.flash('info', 'Please type in name and select a language!');
             }
@@ -71,16 +68,10 @@ module.exports = function greetingRouts (greet) {
     }
 
     async function resetting(req, res) {
-        // let Button = req.body.resetBTN
-
-        try {
-            await greet.reset()
+        await greet.reset();
             req.flash('key', 'Database cleared succesfully!');
             res.redirect('/')
     
-        } catch (error) {
-            console.log(error)
-        }
     }
 
     return {
